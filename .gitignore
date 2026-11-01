@@ -1,0 +1,18 @@
+# Godot
+.godot/
+.import/
+build/
+export_credentials.cfg
+*.translation
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python tooling (tools/gen_voice.py, tools/annotate_docs.py)
+__pycache__/
+*.pyc
+.venv/
+venv/

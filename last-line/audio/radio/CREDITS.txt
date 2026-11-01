@@ -1,0 +1,11 @@
+Radio voices: pre-rendered with Piper (https://github.com/OHF-Voice/piper1-gpl) using voices from
+https://huggingface.co/rhasspy/piper-voices. Only public-domain / CC0 / Apache-2.0 datasets are used:
+
+hq     en_US-john-medium      public domain
+squad  en_US-norman-medium    public domain
+comms  en_US-kristin-medium   public domain (LibriVox)
+radar  en_US-bryce-medium     public domain
+eo     en_US-ljspeech-medium  public domain (LJ Speech)
+fire   en_US-joe-medium       CC0
+
+Re-generate with tools/gen_voice.py (see the docstring).
