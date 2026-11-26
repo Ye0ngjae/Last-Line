@@ -1,19 +1,22 @@
 # 웹 배포 (GitHub Pages)
 
-레포(`Ye0ngjae/Last-Line`)에 푸시하면 GitHub Actions가 Godot로 웹 빌드를 만들어 GitHub Pages에 올리도록 설정되어 있다.
+Godot 에디터에서 웹으로 내보낸 정적 파일을 `gh-pages` 브랜치에 올려서 GitHub Pages로 배포한다. (GitHub Actions는 쓰지 않는다.)
 
-- 워크플로: [.github/workflows/deploy-web.yml](../.github/workflows/deploy-web.yml)
+- 배포 스크립트: [deploy-web.sh](../deploy-web.sh)
 - 내보내기 프리셋: [last-line/export_presets.cfg](../last-line/export_presets.cfg) (Web, **스레드 지원 끔**)
 - 결과 주소: `https://ye0ngjae.github.io/Last-Line/`
 
+## 배포하기
+
+1. Godot 에디터 → **Project → Export → Web → Export Project**로 `last-line/build/web/index.html`에 내보낸다.
+2. 레포 루트에서 `./deploy-web.sh`를 실행한다. (`build/web`을 `gh-pages` 브랜치에 강제 푸시한다.)
+
 ## 처음 한 번만 할 설정
 
-1. 이 변경(워크플로, 프리셋, 프로젝트 전체)을 커밋하고 `main`에 푸시한다.
-2. GitHub 레포 → **Settings → Pages → Build and deployment → Source: GitHub Actions** 로 바꾼다.
-3. **Actions** 탭에서 `Deploy web build`가 초록색으로 끝나는지 확인한다. 실패하면 로그를 본다.
-4. 완료되면 위 주소로 접속한다. 이후에는 `main`에 푸시할 때마다 자동으로 다시 배포된다(수동 실행: Actions → Deploy web build → Run workflow).
+- 처음으로 `./deploy-web.sh`를 실행한 뒤 GitHub 레포 → **Settings → Pages → Source: Deploy from a branch → `gh-pages` / `(root)`** 로 저장한다.
+- 1~2분 뒤 위 주소로 접속한다.
 
-> Pages는 무료 계정이면 **공개 레포**에서만 쓸 수 있다. 비공개 레포로 두려면 유료 플랜이거나, 아래 대안(itch.io, Netlify, Cloudflare Pages 등)을 쓴다.
+> Pages는 무료 계정이면 **공개 레포**에서만 쓸 수 있다.
 
 ## 왜 별도 서버 설정이 필요 없나
 
@@ -33,7 +36,7 @@
 - **한국어 자막**: 시스템 폰트가 없는 웹에서도 보이도록 폰트를 프로젝트에 포함했다(`fonts/`).
 - **화면 비율/전체화면**: 옵션 화면에서 바꿀 수 있다. 브라우저 전체화면은 클릭 직후에만 허용된다.
 - **저장**: 옵션 값은 브라우저 저장소(IndexedDB)에 저장된다. 사이트 데이터를 지우면 초기화된다.
-- **에디터 버전**: 워크플로의 `GODOT_VERSION`을 에디터와 같은 버전으로 유지한다(현재 4.7.2). 버전을 올리면 해당 릴리스의 내보내기 템플릿이 자동으로 내려받아진다.
+- **내보내기 템플릿**: 에디터 → **Editor → Manage Export Templates**에서 에디터와 같은 버전(현재 4.7.2)의 템플릿을 설치해야 내보낼 수 있다.
 
 ## 다른 호스팅
 

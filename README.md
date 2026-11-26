@@ -24,7 +24,7 @@ Godot 4.7 (GL Compatibility), 웹 브라우저 플레이 전제, 마우스만으
 2. F5로 실행 → **START** → 장비·미션·환경·seed 선택 → 지도 클릭으로 사이트 지정 → **DEPLOY**.
 3. 장비별 튜토리얼을 따라 해 본다.
 
-웹 배포: `main`에 푸시하면 GitHub Actions가 웹 빌드를 GitHub Pages에 올린다. 설정과 시험 방법은 [docs/DEPLOY.md](docs/DEPLOY.md).
+웹 배포: 에디터에서 Web으로 내보낸 뒤 `./deploy-web.sh`를 실행하면 GitHub Pages(`gh-pages` 브랜치)에 올라간다. 설정과 시험 방법은 [docs/DEPLOY.md](docs/DEPLOY.md).
 
 ## 장비와 튜토리얼
 
